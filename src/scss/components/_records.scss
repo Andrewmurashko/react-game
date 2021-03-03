@@ -1,0 +1,17 @@
+.records{
+    width: 490px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.records__title{
+    margin-bottom: 10px;
+}
+.records__item{
+    padding: 5px;
+  color: white;
+  border: 2px solid ;
+  border-radius: 8px;
+  width: 490px;
+  margin-bottom: 10px;
+}

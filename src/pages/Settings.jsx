@@ -1,8 +1,11 @@
 import React from 'react';
 import useHotkeys from '@reecelucas/react-use-hotkeys';
+import {withRouter} from 'react-router-dom'
+import {ButtonGetBack} from '../components'
 
 function Settings({ history, setIsDarkTheme, isDarkTheme }) {
   const [rules, setRules] = React.useState(true);
+
   useHotkeys(['Escape', 'Backspace'], () => {
     console.log('Some action');
     history.push('/');
@@ -59,8 +62,9 @@ function Settings({ history, setIsDarkTheme, isDarkTheme }) {
         />
         off
       </div>
+      <ButtonGetBack history={history} />
     </div>
   );
 }
 
-export default Settings;
+export default withRouter(Settings);

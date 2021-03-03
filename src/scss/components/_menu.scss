@@ -21,3 +21,12 @@
 .selected{
     color: rgb(255, 255, 255);
 }
+
+.button__get-back{
+    cursor: pointer;
+    &:hover{
+        color: rgb(255, 255, 255);
+        transition: 0.5s;
+        
+    }
+}

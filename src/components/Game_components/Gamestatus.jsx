@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-// import { tempMove, steps, stepsArr } from './Game';
 
 function Gamestatus({ turn }) {
   const [steps, setsteps] = React.useState(0);
@@ -16,21 +15,17 @@ function Gamestatus({ turn }) {
   }, []);
 
   useEffect(() => {
-    setsteps(JSON.parse(localStorage.getItem('gameStatAllSteps')));
-    setstepsArr(JSON.parse(localStorage.getItem('gameStatCurrStep')));
-    console.log(steps);
-    console.log(stepsArr);
+    if (turn) {
+      setTimeout(function () {
+        setsteps(JSON.parse(localStorage.getItem('gameStatAllSteps')));
+        setstepsArr(JSON.parse(localStorage.getItem('gameStatCurrStep')));
+        console.log(steps);
+        console.log(stepsArr);
+        console.log();
+      }, 0);
+    }
   }, [turn]);
 
-  // let localSteps = 0;
-  // let localCurrStep = [''];
-  //   React.useEffect(() => {
-  //     localSteps = JSON.parse(localStorage.getItem('gameStatAllSteps'));
-  //     localCurrStep = JSON.parse(localStorage.getItem('gameStatCurrStep'));
-  //     console.log(localCurrStep);
-  //   }, [steps, stepsArr]);
-
-  //   console.log(tempMove);
   return (
     <div className="game-statistics" ref={statusRef}>
       <div className="game-statistics__steps">

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { gameSubject, Board, Gamestatus } from '../components';
+import { gameSubject, Board, Gamestatus, ButtonGetBack } from '../components';
 import { initGame, resetGame, steps, stepsArr } from '../components/Game_components/Game';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
@@ -139,6 +139,7 @@ function Game({ history }) {
     <div className="Game">
       <div className="container">
         <div className="settings" ref={settingsRef}>
+        <ButtonGetBack history={history} />
           <div className={'settings__chess-sound'}>
             <h3 className={'settings__chess-sound_title'}>Chess sounds</h3>
             <input onChange={asd} id="soundsRange" type="range" min="0" max="100"></input>

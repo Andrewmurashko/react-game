@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.f6de37e9.chunk.css",
-    "main.js": "/static/js/main.f8db4e17.chunk.js",
-    "main.js.map": "/static/js/main.f8db4e17.chunk.js.map",
+    "main.js": "/static/js/main.331627c1.chunk.js",
+    "main.js.map": "/static/js/main.331627c1.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.900a620a.js",
     "runtime-main.js.map": "/static/js/runtime-main.900a620a.js.map",
     "static/css/2.3e35cbb6.chunk.css": "/static/css/2.3e35cbb6.chunk.css",
@@ -15,6 +15,7 @@
     "static/css/main.f6de37e9.chunk.css.map": "/static/css/main.f6de37e9.chunk.css.map",
     "static/js/2.127de082.chunk.js.LICENSE.txt": "/static/js/2.127de082.chunk.js.LICENSE.txt",
     "static/js/3.0ac11e19.chunk.js.LICENSE.txt": "/static/js/3.0ac11e19.chunk.js.LICENSE.txt",
+    "static/media/Vechnye_Hity-Louis_Armstrong_-_Wonderful_World_(MUSIC-LORD.COM).ab412a65.mp3": "/static/media/Vechnye_Hity-Louis_Armstrong_-_Wonderful_World_(MUSIC-LORD.COM).ab412a65.mp3",
     "static/media/chess.db2f5ba9.mp3": "/static/media/chess.db2f5ba9.mp3",
     "static/media/click.b94c632a.mp3": "/static/media/click.b94c632a.mp3"
   },
@@ -23,6 +24,6 @@
     "static/css/2.3e35cbb6.chunk.css",
     "static/js/2.127de082.chunk.js",
     "static/css/main.f6de37e9.chunk.css",
-    "static/js/main.f8db4e17.chunk.js"
+    "static/js/main.331627c1.chunk.js"
   ]
 }

@@ -5,6 +5,7 @@ import { initGame, resetGame, steps, stepsArr } from '../components/Game_compone
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import useHotkeys from '@reecelucas/react-use-hotkeys';
+import clickMP3 from '../assets/sounds/Vechnye_Hity-Louis_Armstrong_-_Wonderful_World_(MUSIC-LORD.COM).mp3';
 
 function Game({ history }) {
   const [board, setBoard] = React.useState([]);
@@ -147,7 +148,7 @@ function Game({ history }) {
           <div className="player">
             <AudioPlayer
               autoPlay
-              src="https://cdn9.sefon.pro/prev/XUV9x5b7KAdr5nBuVxQdyg/1614704385/20/Louis%20Armstrong%20-%20What%20A%20Wonderful%20World%20%28192kbps%29.mp3"
+              src={clickMP3}
               onPlay={(e) => console.log('onPlay')}
             />
           </div>

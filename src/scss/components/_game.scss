@@ -10,11 +10,11 @@
     display: flex;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  height: 490px;
 }
 .board-container {
-  width: 400px;
-  height: 400px;
+  width: 490px;
+  height: 490px;
 }
 
 .board {
@@ -123,4 +123,17 @@
 .settings{
     display: flex;
     margin-bottom: 5px;
+    width: 490px;
+    justify-content: space-between;
+}
+
+.settings__chess-sound{
+  color: white;
+  border: 2px solid ;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.settings__chess-sound_title{
+  font-family: sans-serif;
 }

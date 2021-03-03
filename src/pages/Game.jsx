@@ -139,8 +139,8 @@ function Game({ history }) {
     <div className="Game">
       <div className="container">
         <div className="settings" ref={settingsRef}>
-          <div>
-            <h3>Chess sounds</h3>
+          <div className={'settings__chess-sound'}>
+            <h3 className={'settings__chess-sound_title'}>Chess sounds</h3>
             <input onChange={asd} id="soundsRange" type="range" min="0" max="100"></input>
           </div>
           <div className="player">
@@ -151,8 +151,8 @@ function Game({ history }) {
             />
           </div>
         </div>
-        <Gamestatus steps={steps} stepsArr={stepsArr} />
-        {/* <Timer /> */}
+        <Gamestatus steps={steps} stepsArr={stepsArr} turn={turn} />
+        {console.log(steps)}
         <div className="game-container" ref={gameRef}>
           {isGameOver && (
             <h2 className="vertical-text" ref={leftContainerRef}>

@@ -1,0 +1,15 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  // flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme_dark {
+  background-color: rgb(0, 0, 0);
+}
+.theme_colored {
+  background-color: #082a45;
+}

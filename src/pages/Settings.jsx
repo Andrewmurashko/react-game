@@ -1,5 +1,4 @@
-import React, {useEffect, useRef} from 'react';
-import { gsap } from 'gsap';
+import React from 'react';
 import useHotkeys from '@reecelucas/react-use-hotkeys';
 import { withRouter } from 'react-router-dom';
 import { ButtonGetBack } from '../components';
@@ -17,14 +16,6 @@ function Settings({
     history.push('/');
   });
 
-  const settingsRef = useRef();
-  useEffect(() => {
-    gsap.from([settingsRef.current], {
-      y: '-800px',
-      duration: 1,
-    });
-  }, []);
-
   const sizePic = () => {};
 
   const setSettingsLS = (isDarkTheme) => {
@@ -33,7 +24,6 @@ function Settings({
   const changeTheme = () => {
     setIsDarkTheme(!isDarkTheme);
     setSettingsLS(!isDarkTheme);
-    console.log(isDarkTheme)
   };
 
   const change50MovesRule = () => {
@@ -47,7 +37,7 @@ function Settings({
   };
 
   return (
-    <div className="settings-menu" ref={settingsRef}>
+    <div className="settings-menu" >
       <h2 className="title settings-menu-title">Settings</h2>
       <div className="settings-menu__items">
         <div className="settings-menu__item">

@@ -18,8 +18,6 @@ function Tutorial({ history }) {
         </div>
         <div className="game-hotkeys">
           <h3 className="title-hotkeys">{`Хоткеи в игре:`}</h3>
-          <div>{`стрелки "вверх", "вниз" - выбор элемента меню;`}</div>
-          <div>{`"Enter" - переход к элементу;`}</div>
           <div>{`"Esc", "BackSpace" - возврат в главное меню `}</div>
         </div>
         <div className="player-hotkeys">

@@ -7,14 +7,12 @@ import { Footer } from "./components";
 function App() {
   
   const [isDarkTheme, setIsDarkTheme] = React.useState(true);
-  console.log(setIsDarkTheme);
   React.useEffect(() => {
     // generateFooter()
     if (!isDarkTheme) {
     }
   }, [isDarkTheme]);
   return (
-    <div  >
     <div className={isDarkTheme ? `theme_dark wrapper` : `theme_colored wrapper`}>
       <Route exact path="/" component={Menu}></Route>
       <Route exact path="/Game" component={Game}></Route>
@@ -29,7 +27,6 @@ function App() {
     <div className="footer__wrapper"><Footer /></div>
       
     </div>
-    </div> 
   );
 }
 

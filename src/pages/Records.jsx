@@ -22,7 +22,7 @@ function Records({ history }) {
 
   return (
     <div className="records">
-      <h2 className="records__title">Records</h2>
+      <h2 className=" title records__title">Records</h2>
       <div className="records__items">
         {console.log(recordsState)}
       {recordsState.length &&

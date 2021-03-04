@@ -4,7 +4,6 @@ import { ButtonGetBack } from '../components';
 
 function Tutorial({ history }) {
   useHotkeys(['Escape', 'Backspace'], () => {
-    console.log('Some action');
     history.push('/');
   });
   return (

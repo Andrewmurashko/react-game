@@ -8,7 +8,6 @@ const gameSubject = new BehaviorSubject({
 });
 
 export function initGame() {
-  //   const savedGame = localStorage.getItem('savedGame');
   if (localStorage.getItem('savedGame')) {
     chess.load(localStorage.getItem('savedGame'));
     updateGame();
@@ -29,7 +28,6 @@ export function resetGame() {
 
 export function handleMove(from, to) {
   const promotions = chess.moves({ verbose: true }).filter((m) => m.promotion);
-  //   console.table(promotions);
   if (promotions.some((p) => `${p.from}:${p.to}` === `${from}:${to}`)) {
     const pendingPromotion = { from, to, color: promotions[0].color };
     updateGame(pendingPromotion);
@@ -52,15 +50,8 @@ export function move(from, to, promotion) {
 
   if (legalMove) {
     updateGame();
-    // console.log(from, to);
     stepsArr.push({ from, to });
-    // console.log(stepsArr);
     steps += 1;
-    // stepsArr.map((el)=> {
-    //     localStorage.setItem('gameStatAllSteps', JSON.stringify(el.from))
-    //     localStorage.setItem('gameStatAllSteps', JSON.stringify(el.to))
-
-    // })
     localStorage.setItem('gameStatAllSteps', JSON.stringify(steps));
     localStorage.setItem('gameStatCurrStep', JSON.stringify(stepsArr));
   }

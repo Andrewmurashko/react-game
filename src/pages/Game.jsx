@@ -19,7 +19,7 @@ function Game({ history }) {
   const gameRef = useRef();
   const leftContainerRef = useRef();
   const rightContainerRef = useRef();
-  // const statusRef = useRef();
+
   useEffect(() => {
     if (isGameOver) {
       gsap.from([leftContainerRef.current], {
@@ -31,8 +31,8 @@ function Game({ history }) {
         duration: 1,
       });
     }
-    console.log(`gameover`);
   }, [result]);
+
   useEffect(() => {
     gsap.from([settingsRef.current], {
       y: '-800px',
@@ -42,15 +42,9 @@ function Game({ history }) {
       y: '800px',
       duration: 1,
     });
-    // gsap.from([statusRef.current], {
-    //   x: '800px',
-    //   duration: 1,
-    // });
-    console.log(`start`);
   }, []);
 
   useHotkeys(['Escape', 'Backspace'], () => {
-    console.log('Some action');
     history.push('/');
   });
   React.useEffect(() => {
@@ -62,24 +56,15 @@ function Game({ history }) {
       setTurn(game.turn);
       if (localStorage.getItem(`Records`)) {
         setStepsstate(JSON.parse(localStorage.getItem(`Records`)));
-
-        console.log(stepsState);
       }
-      // document.getElementById('soundsRange').addEventListener('change', function () {
-      //   setSoundsVolume(this.value);
-      //   console.log(this.value);
-      //   console.log(soundsVolume);
-      // });
     });
     return () => subscribe.unsubscribe();
   }, [result, isGameOver]);
 
   React.useEffect(() => {
     if (result) {
-      console.log(steps);
       setStepsstate([...stepsState, { steps, stepsArr, result }]);
       localStorage.setItem('Records', JSON.stringify([...stepsState, { steps, stepsArr, result }]));
-      console.log([...stepsState, { steps, stepsArr, result }]);
     }
   }, [result]);
 
@@ -94,67 +79,23 @@ function Game({ history }) {
     });
     setTimeout(() => resetGame(), 1000);
   };
-  // const [state, setstate] = React.useState(
-  //   JSON.parse(localStorage.getItem(`saveGame`)) || {
-  //     isGame: false,
-  //     currentWord: wordsData[0].eng,
-  //     wrongWords: [],
-  //     lives: 5,
-  //   },
-  // );
-
-  // React.useEffect(() => {
-  //   shuffleCards();
-  //   pushWrongWordsArray();
-  //   return () => {
-  //     window.localStorage.setItem(`saveGame`, JSON.stringify(state));
-  //   };
-  // }, []);
   const asd = (e) => {
     setSoundsVolume(e.target.value);
-    console.log(e.target.value);
   };
-
-  // const [ minutes, setMinutes ] = React.useState(10);
-  // const [seconds, setSeconds ] =  React.useState(3);
-
-  // useEffect(()=>{
-  // const myInterval = setInterval(() => {
-  //         if (seconds > 0) {
-  //             setSeconds(seconds - 1);
-  //         }
-  //         if (seconds === 0) {
-  //             if (minutes === 0) {
-  //                 clearInterval(myInterval)
-  //             } else {
-  //                 setMinutes(minutes - 1);
-  //                 setSeconds(59);
-  //             }
-  //         }
-  //     }, 1000)
-  //     return ()=> {
-  //         clearInterval(myInterval);
-  //       };
-  // });
   return (
     <div className="Game">
       <div className="container">
         <div className="settings" ref={settingsRef}>
-        <ButtonGetBack history={history} />
+          <ButtonGetBack history={history} />
           <div className={'settings__chess-sound'}>
             <h3 className={'settings__chess-sound_title'}>Chess sounds</h3>
             <input onChange={asd} id="soundsRange" type="range" min="0" max="100"></input>
           </div>
           <div className="player">
-            <AudioPlayer
-              autoPlay
-              src={clickMP3}
-              onPlay={(e) => console.log('onPlay')}
-            />
+            <AudioPlayer autoPlay src={clickMP3} />
           </div>
         </div>
         <Gamestatus steps={steps} stepsArr={stepsArr} turn={turn} />
-        {console.log(steps)}
         <div className="game-container" ref={gameRef}>
           {isGameOver && (
             <h2 className="vertical-text" ref={leftContainerRef}>

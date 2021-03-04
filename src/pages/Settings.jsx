@@ -7,25 +7,18 @@ function Settings({ history, setIsDarkTheme, isDarkTheme }) {
   const [movesRule, setMovesRule] = React.useState(true);
   const [repititionRule, setRepititionRule] = React.useState(true);
 
-  // React.useEffect(() => {
-    
-  //   }
-  // }, [])
   useHotkeys(['Escape', 'Backspace'], () => {
-    console.log('Some action');
     history.push('/');
   });
 
   const sizePic = () => {
-    console.log(`hi`);
   };
+
   const setSettingsLS = ()=> {
     localStorage.setItem('Settings', JSON.stringify({isDarkTheme, movesRule, repititionRule}) )
   }
   const changeTheme = () => {
-    console.log(`checked`);
     setIsDarkTheme(!isDarkTheme);
-    console.log(setIsDarkTheme);
     setSettingsLS();
   };
 

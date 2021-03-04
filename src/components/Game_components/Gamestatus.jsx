@@ -10,8 +10,6 @@ function Gamestatus({ turn }) {
       x: '-800px',
       duration: 1,
     });
-
-    console.log(`start`);
   }, []);
 
   useEffect(() => {
@@ -19,9 +17,6 @@ function Gamestatus({ turn }) {
       setTimeout(function () {
         setsteps(JSON.parse(localStorage.getItem('gameStatAllSteps')));
         setstepsArr(JSON.parse(localStorage.getItem('gameStatCurrStep')));
-        console.log(steps);
-        console.log(stepsArr);
-        console.log();
       }, 0);
     }
   }, [turn]);

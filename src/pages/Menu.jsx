@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import useSound from 'use-sound';
 import clickMP3 from '../assets/sounds/click.mp3';
 import useHotkeys from '@reecelucas/react-use-hotkeys';
-// import { Link } from 'react-router-dom';
 
 function Menu({ history }) {
   const [play] = useSound(clickMP3);
@@ -12,7 +11,6 @@ function Menu({ history }) {
 
   let i = 0;
   useHotkeys('ArrowDown', (index) => {
-    console.log(`ArrowDown action ${i}`);
     if (i >= 5) {
       document.querySelector(`.menu__${i - 1}`).classList.remove('selected');
       i = 0;
@@ -24,7 +22,6 @@ function Menu({ history }) {
     i = i + 1;
   });
   useHotkeys('ArrowUp', (index) => {
-    console.log('ArrowUp action');
     i = i - 1;
     if (i < 0) {
       document.querySelector(`.menu__${i + 1}`).classList.remove('selected');
@@ -37,7 +34,6 @@ function Menu({ history }) {
   });
 
   useHotkeys('Enter', () => {
-    console.log('Some action');
     if (document.querySelector(`.selected`)) {
       play();
       menuList.some((el, index) => {
@@ -45,7 +41,6 @@ function Menu({ history }) {
           seFlagRoute(true);
           return setTimeout(() => history.push(`${el.url}`), 1000);
         } else {
-          console.log('fuck');
         }
       });
     }
@@ -70,7 +65,6 @@ function Menu({ history }) {
         y: '800px',
         duration: 1,
       });
-      console.log(flagRoute);
     }
   }, [flagRoute]);
 

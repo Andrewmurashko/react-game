@@ -7,16 +7,9 @@ function Records({ history }) {
   const [recordsState, setRecordsState] = React.useState(
     JSON.parse(localStorage.getItem(`Records`)) || [],
   );
-  //   let getRecordsLS = [];
-  React.useEffect(() => {
-    // const getRecordsLS = JSON.parse(localStorage.getItem(`Records`));
-    // console.log(getRecordsLS);
-    // setRecordsState(JSON.parse(localStorage.getItem(`Records`)));
-    console.log(recordsState);
-  }, []);
+
 
   useHotkeys(['Escape', 'Backspace'], () => {
-    console.log('Some action');
     history.push('/');
   });
 
@@ -24,7 +17,6 @@ function Records({ history }) {
     <div className="records">
       <h2 className=" title records__title">Records</h2>
       <div className="records__items">
-        {console.log(recordsState)}
       {recordsState.length &&
         recordsState.sort((el,el2)=>el.steps-el2.steps).map((el, index) => {
           return (

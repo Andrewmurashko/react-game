@@ -1,24 +1,15 @@
 import React from 'react';
 import BoardSquare from './BoardSquare';
-import { gsap } from 'gsap';
 import chessSound from '../../assets/sounds/chess.mp3';
 import useSound from 'use-sound';
-function Board({ board, turn, boxRef, soundsVolume }) {
+function Board({ board, turn, soundsVolume }) {
   const [currBoard, setCurrBoard] = React.useState([]);
   const [play] = useSound(chessSound, { volume: soundsVolume / 100 });
 
   React.useEffect(() => {
     setCurrBoard(turn === 'w' ? board.flat() : board.flat().reverse());
     play();
-    console.log(soundsVolume);
   }, [turn]);
-
-  //   React.useEffect(() => {
-  //     gsap.to([boxRef.current], {
-  //     x: '400px',
-  //     duration: 2
-  //     })
-  //     })
 
   function getXYPosition(index) {
     const x = turn === 'w' ? index % 8 : Math.abs((index % 8) - 7);

@@ -18,12 +18,13 @@ function Settings({
 
   const sizePic = () => {};
 
-  const setSettingsLS = () => {
+  const setSettingsLS = (isDarkTheme) => {
     localStorage.setItem('Settings', JSON.stringify({ isDarkTheme, movesRule, repititionRule }));
   };
   const changeTheme = () => {
     setIsDarkTheme(!isDarkTheme);
-    setSettingsLS();
+    setSettingsLS(!isDarkTheme);
+    console.log(isDarkTheme)
   };
 
   const change50MovesRule = () => {
@@ -45,7 +46,7 @@ function Settings({
           <input
             className="settings-menu__input"
             type="radio"
-            onChange={changeTheme}
+            
             checked={isDarkTheme ? 'checked' : ''}
             onClick={changeTheme}
             volue="on"
@@ -54,7 +55,7 @@ function Settings({
           <input
             className="settings-menu__input"
             type="radio"
-            onChange={changeTheme}
+            
             checked={!isDarkTheme ? 'checked' : ''}
             onClick={changeTheme}
             volue="off"

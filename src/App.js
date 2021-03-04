@@ -6,13 +6,14 @@ import { Menu, Game, Settings, Tutorial, Records } from './pages';
 import { Footer } from './components';
 function App() {
   const [isDarkTheme, setIsDarkTheme] = React.useState(true);
+  
+  React.useEffect(() => {
+    if(localStorage.getItem('Settings')) {
+      setIsDarkTheme(JSON.parse(localStorage.getItem('Settings')).isDarkTheme)
+    }
+  }, [])
   const [movesRule, setMovesRule] = React.useState(true);
   const [repititionRule, setRepititionRule] = React.useState(true);
-  React.useEffect(() => {
-    // generateFooter()
-    if (!isDarkTheme) {
-    }
-  }, [isDarkTheme]);
   return (
     <div className={isDarkTheme ? `theme_dark wrapper` : `theme_colored wrapper`}>
       <Route exact path="/" component={Menu}></Route>

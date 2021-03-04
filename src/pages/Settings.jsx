@@ -28,12 +28,12 @@ function Settings({
 
   const change50MovesRule = () => {
     setMovesRule(!movesRule);
-    setSettingsLS();
+    setSettingsLS(isDarkTheme);
   };
 
   const changeRepititionRule = () => {
     setRepititionRule(!repititionRule);
-    setSettingsLS();
+    setSettingsLS(isDarkTheme);
   };
 
   return (

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
+import { gsap } from 'gsap';
 import useHotkeys from '@reecelucas/react-use-hotkeys';
 import { withRouter } from 'react-router-dom';
 import { ButtonGetBack } from '../components';
@@ -15,6 +16,14 @@ function Settings({
   useHotkeys(['Escape', 'Backspace'], () => {
     history.push('/');
   });
+
+  const settingsRef = useRef();
+  useEffect(() => {
+    gsap.from([settingsRef.current], {
+      y: '-800px',
+      duration: 1,
+    });
+  }, []);
 
   const sizePic = () => {};
 
@@ -38,7 +47,7 @@ function Settings({
   };
 
   return (
-    <div className="settings-menu">
+    <div className="settings-menu" ref={settingsRef}>
       <h2 className="title settings-menu-title">Settings</h2>
       <div className="settings-menu__items">
         <div className="settings-menu__item">

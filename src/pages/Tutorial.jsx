@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
+import { gsap } from 'gsap';
 import useHotkeys from '@reecelucas/react-use-hotkeys';
 import { ButtonGetBack } from '../components';
 
@@ -6,8 +7,16 @@ function Tutorial({ history }) {
   useHotkeys(['Escape', 'Backspace'], () => {
     history.push('/');
   });
+  const settingsRef = useRef();
+  useEffect(() => {
+    gsap.from([settingsRef.current], {
+      y: '-800px',
+      duration: 1,
+    });
+  }, []);
+
   return (
-    <div className="tutorial">
+    <div className="tutorial" ref={settingsRef}>
       <h2 className="tutorial__title">Tutorial</h2>
       <div className="tutorial__subtiitle_hotkeys">
         <div className="menu-hotkeys">

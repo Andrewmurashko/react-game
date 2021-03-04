@@ -79,7 +79,7 @@ function Game({ history }) {
     });
     setTimeout(() => resetGame(), 1000);
   };
-  const asd = (e) => {
+  const currSoundsValue = (e) => {
     setSoundsVolume(e.target.value);
   };
   return (
@@ -89,7 +89,12 @@ function Game({ history }) {
           <ButtonGetBack history={history} />
           <div className={'settings__chess-sound'}>
             <h3 className={'settings__chess-sound_title'}>Chess sounds</h3>
-            <input onChange={asd} id="soundsRange" type="range" min="0" max="100"></input>
+            <input
+              onChange={currSoundsValue}
+              id="soundsRange"
+              type="range"
+              min="0"
+              max="100"></input>
           </div>
           <div className="player">
             <AudioPlayer autoPlay src={clickMP3} />

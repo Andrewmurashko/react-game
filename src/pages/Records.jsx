@@ -1,20 +1,28 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import { ReactReduxContext } from 'react-redux';
 import useHotkeys from '@reecelucas/react-use-hotkeys';
 import {ButtonGetBack} from '../components'
+import { gsap } from 'gsap';
 
 function Records({ history }) {
   const [recordsState, setRecordsState] = React.useState(
     JSON.parse(localStorage.getItem(`Records`)) || [],
   );
 
+  const settingsRef = useRef();
+  useEffect(() => {
+    gsap.from([settingsRef.current], {
+      y: '-800px',
+      duration: 1,
+    });
+  }, []);
 
   useHotkeys(['Escape', 'Backspace'], () => {
     history.push('/');
   });
 
   return (
-    <div className="records">
+    <div className="records" ref={settingsRef}>
       <h2 className=" title records__title">Records</h2>
       <div className="records__items">
       {recordsState.length &&

@@ -3,10 +3,11 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import { Menu, Game, Settings, Tutorial, Records } from './pages';
-import { Footer } from "./components";
+import { Footer } from './components';
 function App() {
-  
   const [isDarkTheme, setIsDarkTheme] = React.useState(true);
+  const [movesRule, setMovesRule] = React.useState(true);
+  const [repititionRule, setRepititionRule] = React.useState(true);
   React.useEffect(() => {
     // generateFooter()
     if (!isDarkTheme) {
@@ -20,12 +21,20 @@ function App() {
         exact
         path="/Settings"
         component={() => (
-          <Settings setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} />
+          <Settings
+            setIsDarkTheme={setIsDarkTheme}
+            isDarkTheme={isDarkTheme}
+            movesRule={movesRule}
+            setMovesRule={setMovesRule}
+            repititionRule={repititionRule}
+            setRepititionRule={setRepititionRule}
+          />
         )}></Route>
       <Route exact path="/Tutorial" component={Tutorial}></Route>
       <Route exact path="/Records" component={Records}></Route>
-    <div className="footer__wrapper"><Footer /></div>
-      
+      <div className="footer__wrapper">
+        <Footer />
+      </div>
     </div>
   );
 }

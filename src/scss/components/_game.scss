@@ -119,6 +119,8 @@
   border-radius: 8px;
   width: 490px;
   margin-bottom: 10px;
+  max-height: 80px;
+  overflow-y: scroll;
 }
 
 .game-statistics__title{
@@ -151,4 +153,15 @@
 #soundsRange {
   cursor: pointer;
   max-width: 70px;
+}
+::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+  background: #404040;
+}
+::-webkit-scrollbar-thumb {
+  background: #5c5c5c;
+}
+::-webkit-scrollbar-thumb:hover {
+  background:#adadad;
 }

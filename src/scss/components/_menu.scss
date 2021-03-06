@@ -25,6 +25,9 @@
 .button__get-back{
     cursor: pointer;
     width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover{
         color: rgb(255, 255, 255);
         transition: 0.5s;

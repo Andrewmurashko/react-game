@@ -1,13 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { gameSubject, Board, Gamestatus, ButtonGetBack } from '../components';
+import { gameSubject, Board, Gamestatus, ButtonGetBack, FullScreen } from '../components';
 import { initGame, resetGame, steps, stepsArr } from '../components/Game_components/Game';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import useHotkeys from '@reecelucas/react-use-hotkeys';
 import clickMP3 from '../assets/sounds/Vechnye_Hity-Louis_Armstrong_-_Wonderful_World_(MUSIC-LORD.COM).mp3';
 
-function Game({ history }) {
+function Game({ history, handle }) {
   const [board, setBoard] = React.useState([]);
   const [isGameOver, setIsGameOver] = React.useState();
   const [result, setResult] = React.useState();
@@ -87,8 +87,9 @@ function Game({ history }) {
       <div className="container">
         <div className="settings" ref={settingsRef}>
           <ButtonGetBack history={history} />
+          <FullScreen handle={handle} />
           <div className={'settings__chess-sound'}>
-            <h3 className={'settings__chess-sound_title'}>Chess sounds</h3>
+            <h3 className={'settings__chess-sound_title'}>Sounds</h3>
             <input
               onChange={currSoundsValue}
               id="soundsRange"

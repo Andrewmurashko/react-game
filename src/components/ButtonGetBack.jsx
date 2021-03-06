@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
 import { gsap } from 'gsap';
+import { withRouter } from 'react-router-dom';
 
 function ButtonGetBack({ history }) {
   const getBackRef = useRef();
   const getBack = () => {
     gsap.to([getBackRef.current], {
     //   x: '-800px',
-      scale: 1.5,
+      scale: 0.5,
       duration: 1,
     });
     setTimeout(() => {
@@ -20,4 +21,4 @@ function ButtonGetBack({ history }) {
   );
 }
 
-export default ButtonGetBack;
+export default withRouter(ButtonGetBack);

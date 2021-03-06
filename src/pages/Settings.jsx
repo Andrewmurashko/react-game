@@ -18,22 +18,24 @@ function Settings({
 
   const sizePic = () => {};
 
-  const setSettingsLS = (isDarkTheme) => {
+  const setSettingsLS = (isDarkTheme,movesRule,repititionRule) => {
     localStorage.setItem('Settings', JSON.stringify({ isDarkTheme, movesRule, repititionRule }));
   };
   const changeTheme = () => {
     setIsDarkTheme(!isDarkTheme);
-    setSettingsLS(!isDarkTheme);
+    setSettingsLS(!isDarkTheme,movesRule, repititionRule);
   };
 
   const change50MovesRule = () => {
     setMovesRule(!movesRule);
-    setSettingsLS(isDarkTheme);
+    setSettingsLS(isDarkTheme ,!movesRule, repititionRule);
+    // setRepititionRule(repititionRule);
   };
 
   const changeRepititionRule = () => {
     setRepititionRule(!repititionRule);
-    setSettingsLS(isDarkTheme);
+    setSettingsLS(isDarkTheme, movesRule, !repititionRule);
+    // setMovesRule(movesRule);
   };
 
   return (
@@ -66,7 +68,7 @@ function Settings({
           <input
             className="settings-menu__input"
             type="radio"
-            onChange={change50MovesRule}
+            // onChange={change50MovesRule}
             checked={movesRule ? 'checked' : ''}
             onClick={change50MovesRule}
             volue="on"
@@ -75,7 +77,7 @@ function Settings({
           <input
             className="settings-menu__input"
             type="radio"
-            onChange={change50MovesRule}
+            // onChange={change50MovesRule}
             checked={!movesRule ? 'checked' : ''}
             onClick={change50MovesRule}
             volue="off"
@@ -87,7 +89,7 @@ function Settings({
           <input
             className="settings-menu__input"
             type="radio"
-            onChange={changeRepititionRule}
+            // onChange={changeRepititionRule}
             checked={repititionRule ? 'checked' : ''}
             onClick={changeRepititionRule}
             volue="on"
@@ -96,7 +98,7 @@ function Settings({
           <input
             className="settings-menu__input"
             type="radio"
-            onChange={changeRepititionRule}
+            // onChange={changeRepititionRule}
             checked={!repititionRule ? 'checked' : ''}
             onClick={changeRepititionRule}
             volue="off"
